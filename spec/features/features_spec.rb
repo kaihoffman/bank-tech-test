@@ -8,11 +8,13 @@ describe "Bank Account feature tests" do
 # In order to have money in my account
 # I want to be able to deposit money.
 # ```
-
+it "can handle deposits" do
+    expect { account.deposit(1000) }.not_to raise_error
+end
 # ```
 # As an account holder
 # In order to later know when money was deposited or withdrawn,
-# I want to be able to input a date for my operation
+# I want to be able to store a date for my operation
 # ```
 
 # ```
