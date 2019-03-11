@@ -29,32 +29,32 @@ describe "Bank Account feature tests" do
 # In order to have access to my money
 # I want to be able to withdraw money.
 # ```
-it "can handle withdrawals" do
-  account.deposit(1000)
-  expect { account.withdraw(200) }.not_to raise_error
-  expect { account.withdraw(200) }.to change { account.balance }.by(-200.00)
-end
+  it "can handle withdrawals" do
+    account.deposit(1000)
+    expect { account.withdraw(200) }.not_to raise_error
+    expect { account.withdraw(200) }.to change { account.balance }.by(-200.00)
+  end
 
 # ```
 # As an account holder,
 # Because money comes in decimals,
 # I would like to be able to withdraw, deposit and view my balance with 2 decimals
 # ```
-it "returns sums in decimals from account methods" do
-  account.deposit(100.55)
-  account.withdraw(0.50)
-  expect(account.balance).to eq(100.05)
-end
+  it "returns sums in decimals from account methods" do
+    account.deposit(100.55)
+    account.withdraw(0.50)
+    expect(account.balance).to eq(100.05)
+  end
 
 # ```
 # As an account holder,
 # In order to not go over my funds
 # I want to only be able to withdraw what is available in my account
 # ```
-it "protects against overdrawing" do
-  account.deposit(1)
-  expect { account.withdraw(99999) }.to raise_error
-end
+  it "protects against overdrawing" do
+    account.deposit(1)
+    expect { account.withdraw(99_999) }.to raise_error
+  end
 
 # ```
 # As an account holder,
