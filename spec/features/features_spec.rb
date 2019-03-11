@@ -2,7 +2,7 @@ require 'bank_account'
 
 describe "Bank Account feature tests" do
 
-  let(:account) {Account.new}
+  let(:account) { Account.new }
 
 # ```
 # As an account holder
@@ -11,7 +11,7 @@ describe "Bank Account feature tests" do
 # ```
   it "can handle deposits" do
     expect { account.deposit(1000) }.not_to raise_error
-    expect(account.balance).to eq(1000)
+    expect(account.balance).to eq(1000.00)
   end
 # ```
 # As an account holder
@@ -19,11 +19,21 @@ describe "Bank Account feature tests" do
 # I want to be able to store a date for my operation
 # ```
 
+  it "can handle dates for transactions" do
+    account.deposit(1000)
+    expect(account.date).to eq(Time.now.strftime("%d/%m/%Y"))
+  end
+
 # ```
 # As an account holder,
 # In order to have access to my money
 # I want to be able to withdraw money.
 # ```
+it "can handle deposits" do
+  account.deposit(1000)
+  expect { account.withdraw(1000) }.not_to raise_error
+  expect(account.balance).to eq(0.00)
+end
 
 # ```
 # As an account holder,
