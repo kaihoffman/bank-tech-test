@@ -10,4 +10,9 @@ class Account
     @date = date
   end
 
+  def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
+    @balance -= amount
+    @date = date
+  end
+
 end

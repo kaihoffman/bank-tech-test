@@ -17,7 +17,7 @@ describe Account do
   end
 
   it "Responds to :withdraw method and a sum" do
-    expect(account).to respond_to(withdraw).with(1)
+    expect(account).to respond_to(:withdraw).with(1)
   end
 
 end
