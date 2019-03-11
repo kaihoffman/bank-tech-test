@@ -20,4 +20,9 @@ describe Account do
     expect(account).to respond_to(:withdraw).with(1)
   end
 
+  it "Allows a different date in DD/MM/YYYY to be input for a transaction" do
+    account.deposit(250, "12/12/2012")
+    expect(account.date).to eq("12/12/2012")
+  end
+
 end
