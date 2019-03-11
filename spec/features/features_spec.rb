@@ -29,10 +29,10 @@ describe "Bank Account feature tests" do
 # In order to have access to my money
 # I want to be able to withdraw money.
 # ```
-it "can handle deposits" do
+it "can handle withdrawals" do
   account.deposit(1000)
-  expect { account.withdraw(1000) }.not_to raise_error
-  expect(account.balance).to eq(0.00)
+  expect { account.withdraw(200) }.not_to raise_error
+  expect { account.withdraw(200) }.to change { account.balance }.by(-200.00)
 end
 
 # ```
