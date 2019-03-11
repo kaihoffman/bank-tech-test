@@ -2,6 +2,8 @@ require 'bank_account'
 
 describe "Bank Account feature tests" do
 
+  let(:account) {Account.new}
+
 # ```
 # As an account holder
 # In order to have money in my account
@@ -9,6 +11,7 @@ describe "Bank Account feature tests" do
 # ```
   it "can handle deposits" do
     expect { account.deposit(1000) }.not_to raise_error
+    expect(account.balance).to eq(1000)
   end
 # ```
 # As an account holder
