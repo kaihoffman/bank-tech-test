@@ -11,7 +11,10 @@ class Account
   end
 
   def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
-    @balance -= amount
+    if amount <= @balance
+      @balance -= amount
+    else raise "Balance exceeded"
+    end
     @date = date
   end
 
