@@ -64,6 +64,19 @@ describe "Bank Account feature tests" do
   it "Allows user to request a list of transactions on a balance statement" do
     expect { account.balance_sheet.transactions }.not_to raise_error
   end
+
+  it "Adds deposits to the list of transactions as an array in an array" do
+    expect { account.deposit(500, "12/02/2018") }.to change { account.balance_sheet.transactions }.by([])
+  end
+
+  it "Adds withdrawals to the list of transactions as an array in an array" do
+    expect(account.balance_sheet.transactions).to eq([])
+    account.deposit(300)
+    expect(account.balance_sheet.transactions).to include(Array, Array)
+    account.withdraw(250, "12/02/2019") 
+    p account.balance_sheet.transactions
+    expect(account.balance_sheet.transactions.flatten).to include("12/02/2019")
+  end
 # ```
 # As an account holder,
 # So that I can follow my funds over time

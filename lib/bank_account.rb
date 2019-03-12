@@ -16,9 +16,9 @@ class Account
 
   def withdraw(amount, date = Time.now.strftime("%d/%m/%Y"))
     raise "Balance exceeded" if amount >= @balance
-
     @balance -= amount
     @date = date
+    balance_sheet.add_to_transactions([@date, amount, @balance])
   end
 
 end

@@ -13,6 +13,15 @@ describe BalanceSheet do
     subject.add_to_transactions("transaction")
     expect(subject.transactions).to include("transaction")
   end
+
+  it "can store a withdrawal transaction in the balance sheet" do
+    accountdouble = double("Account double")
+    test_withdrawal_amount = 250
+    allow(accountdouble).to receive(:withdraw).and_return("withdrawal")
+    accountdouble.withdraw(test_withdrawal_amount)
+    subject.add_to_transactions("withdrawal")
+    expect(subject.transactions).to include("withdrawal")
+  end
     
 
 end
