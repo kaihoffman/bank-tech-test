@@ -10,5 +10,7 @@ def add_to_transactions(transaction)
   @transactions.push(transaction)
 end
 
+def print_balance_sheet
+  @transactions.each
 
 end
