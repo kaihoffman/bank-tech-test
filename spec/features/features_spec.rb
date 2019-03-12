@@ -61,7 +61,9 @@ describe "Bank Account feature tests" do
 # So that I know how much money is in my account
 # I want to be able to request a balance statement
 # ```
-
+  it "Allows user to request a list of transactions on a balance statement" do
+    expect { account.balance_sheet.transactions }.not_to raise_error
+  end
 # ```
 # As an account holder,
 # So that I can follow my funds over time
