@@ -95,9 +95,9 @@ describe "Acceptace criteria" do
   # When she prints her bank statement
   # Then she would see
   it "conduct the acceptance criteria steps" do
-    account.deposit(1000, 10/01/2012)
-    account.deposit(2000, 13/01/2012)
-    account.withdraw(500, 14/01/2012)
+    account.deposit(1000, "10/01/2012")
+    account.deposit(2000, "13/01/2012")
+    account.withdraw(500, "14/01/2012")
     expect(account.print_balance_sheet).to eq("date || credit || debit || balance \n 14/01/2012 ||        || 500.00 || 2500.00")
   # date || credit || debit || balance
   # 14/01/2012 || || 500.00 || 2500.00

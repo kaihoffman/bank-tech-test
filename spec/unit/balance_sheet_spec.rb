@@ -22,6 +22,10 @@ describe BalanceSheet do
     subject.add_to_transactions("withdrawal")
     expect(subject.transactions).to include("withdrawal")
   end
+
+  it "can respond to a #print_balance_sheet method" do
+    expect(subject).to respond_to(:print_balance_sheet)
+  end
     
 
 end
