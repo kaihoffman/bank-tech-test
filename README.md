@@ -4,6 +4,35 @@ Bank Tech Test
 
 # Makers Academy Week 10
 
+## Installation
+
+1. Clone this Repository
+
+2. run ```bundle install```
+
+3. run the program itself by invoking ```irb -r ./lib/bank_account.rb``` in the cloned directory.
+
+## Tests
+
+You will be able to run the testing suite by running ```rspec```. The individual test files for classes and the features (including Acceptance Criteria below) are in the ```spec/``` folder.
+
+## Usage
+
+After you have started the program with ```irb -r ./lib/bank_account.rb```, you can:
+
+Set up a new account instance:
+```
+account = Account.new
+```
+
+Deposit into an account of your choice:
+
+The #deposit and #withdraw methods will accept a date in the format "DD/MM/YYYY", or use today's date if none is provided:
+
+```
+account.deposit(500, "12/12/2012")
+```
+
 ## User Stories
 
 ```
