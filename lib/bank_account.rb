@@ -4,7 +4,7 @@ class Account
   attr_reader :balance, :date, :balance_sheet
 
   def initialize
-    @balance = 0.0
+    @balance = 0.00
     @balance_sheet = BalanceSheet.new
   end
 

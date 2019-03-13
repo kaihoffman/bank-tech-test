@@ -1,3 +1,4 @@
+require_relative 'printer'
 class BalanceSheet
 
   attr_accessor :transactions
@@ -11,7 +12,7 @@ class BalanceSheet
   end
 
   def print_balance_sheet
-    @transactions
-  end
+    Printer.new.output(@transactions)
+    end
 
 end
