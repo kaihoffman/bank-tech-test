@@ -42,7 +42,8 @@ The #deposit and #withdraw methods will accept a date in the format "DD/MM/YYYY"
 
 ```
 2.6.0 :005 > account2.deposit(500, "12/12/2012")
- => [{:date=>"12/12/2012", :credit_amount=>500, :debit_amount=>nil, :balance=>500.0}]```
+ => [{:date=>"12/12/2012", :credit_amount=>500, :debit_amount=>nil, :balance=>500.0}
+```
 
  And you can print out the balance sheet for an account at any time:
 
