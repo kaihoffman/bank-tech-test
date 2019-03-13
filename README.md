@@ -22,16 +22,36 @@ After you have started the program with ```irb -r ./lib/bank_account.rb```, you 
 
 Set up a new account instance:
 ```
-account = Account.new
+2.6.0 :001 > account = Account.new
+ => #<Account:0x00007fb16f96b888 @balance=0.0, @balance_sheet=#<BalanceSheet:0x00007fb16f96b838 @transactions=[]>>
 ```
 
 Deposit into an account of your choice:
+```
+2.6.0 :002 > account.deposit(245.67)
+ => [{:date=>"13/03/2019", :credit_amount=>245.67, :debit_amount=>nil, :balance=>245.67}]
+```
+
+You can also withdraw, provided there are funds in the account:
+```
+2.6.0 :003 > account.withdraw(12.12)
+ => [{:date=>"13/03/2019", :credit_amount=>245.67, :debit_amount=>nil, :balance=>245.67}, {:date=>"13/03/2019", :credit_amount=>nil, :debit_amount=>12.12, :balance=>233.55}]
+```
 
 The #deposit and #withdraw methods will accept a date in the format "DD/MM/YYYY", or use today's date if none is provided:
 
 ```
-account.deposit(500, "12/12/2012")
-```
+2.6.0 :005 > account2.deposit(500, "12/12/2012")
+ => [{:date=>"12/12/2012", :credit_amount=>500, :debit_amount=>nil, :balance=>500.0}]```
+
+ And you can print out the balance sheet for an account at any time:
+
+ ```
+2.6.0 :006 > account.balance_sheet.print_balance_sheet
+date || credit || debit || balance
+13/03/2019 ||  || 12.12 || 233.55
+13/03/2019 || 245.67 ||  || 245.67
+ ```
 
 ## User Stories
 
