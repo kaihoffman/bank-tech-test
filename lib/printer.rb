@@ -1,22 +1,23 @@
 class Printer
 
-def output(transactions)
-  puts "date || credit || debit || balance"
-  transactions.reverse.each do | transactions |
-    if transactions[:credit_amount] == nil
-      transactions[:credit_amount] == "    "
-    else transactions[:credit_amount] = sprintf('%.2f', transactions[:credit_amount])
-    end
-    
-    if transactions[:debit_amount] == nil
-      transactions[:debit_amount] == "    "
-    else transactions[:debit_amount] = sprintf('%.2f', transactions[:debit_amount])
-    end
+  def output(transactions)
+    puts "date || credit || debit || balance"
+    transactions.reverse_each do |lines|
+      if lines[:credit_amount].nil?
+        lines[:credit_amount] == "    "
+      else lines[:credit_amount] = sprintf('%.2f', lines[:credit_amount])
+      end
+      
+      if lines[:debit_amount].nil?
+        lines[:debit_amount] == "    "
+      else lines[:debit_amount] = sprintf('%.2f', lines[:debit_amount])
+      end
 
-    transactions[:balance] = sprintf('%.2f', transactions[:balance])
+      lines[:balance] = sprintf('%.2f', lines[:balance])
 
-    puts "#{transactions[:date]} || #{transactions[:credit_amount]} || #{transactions[:debit_amount]} || #{transactions[:balance]}"
+      puts "#{lines[:date]} || #{lines[:credit_amount]} || 
+      #{lines[:debit_amount]} || #{lines[:balance]}"
+    end
   end
-end
 
 end

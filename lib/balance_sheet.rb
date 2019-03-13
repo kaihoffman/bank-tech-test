@@ -13,6 +13,6 @@ class BalanceSheet
 
   def print_balance_sheet
     Printer.new.output(@transactions)
-    end
+  end
 
 end
