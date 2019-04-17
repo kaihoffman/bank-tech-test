@@ -15,8 +15,7 @@ class Printer
 
       lines[:balance] = sprintf('%.2f', lines[:balance])
 
-      puts "#{lines[:date]} || #{lines[:credit_amount]} || 
-      #{lines[:debit_amount]} || #{lines[:balance]}"
+      puts "#{lines[:date]} || #{lines[:credit_amount]} || #{lines[:debit_amount]} || #{lines[:balance]}"
     end
   end
 
