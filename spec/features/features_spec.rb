@@ -53,7 +53,7 @@ describe "Bank Account feature tests" do
 # ```
   it "protects against overdrawing" do
     account.deposit(1)
-    expect { account.withdraw(99_999) }.to raise_error
+    expect { account.withdraw(99_999) }.to raise_error("Balance exceeded")
   end
 
 # ```
