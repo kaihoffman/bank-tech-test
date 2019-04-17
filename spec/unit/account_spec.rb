@@ -11,6 +11,10 @@ describe Account do
     expect(account).to respond_to(:deposit).with(1)
   end
 
+  it "Stores the deposit amount in the balance" do
+    expect {account.deposit(100)}.to change {account.balance}.by(100)
+  end
+
   it "Stores a date for the transaction" do
     account.deposit(500)
     expect(account.date).to eq(Time.now.strftime("%d/%m/%Y"))
@@ -18,6 +22,11 @@ describe Account do
 
   it "Responds to :withdraw method and a sum" do
     expect(account).to respond_to(:withdraw).with(1)
+  end
+
+  it "Lowers the balance by the withdrawed amount" do
+    account.deposit(250)
+    expect {account.withdraw(100)}.to change {account.balance}.by(-100)
   end
 
   it "Allows a different date in DD/MM/YYYY to be input for a transaction" do
